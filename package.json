@@ -1,0 +1,8 @@
+{
+    "name": "order_food",
+    "version": "1.0.0",
+    "scripts": {
+      "start": "node index.js"
+    }
+  }
+  
