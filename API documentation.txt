@@ -1,0 +1,188 @@
+		I did all of this using the POST method to reduce being recorded in various logs, caches, and man-in-the-middle attacks.
+
+		To test this REST API, you need to use POST and the parameters are placed in the body as x-www-form or form-data.
+
+		To perform READ, CREATE, DELETE actions, simply add Trigger:C for CREATE, Trigger:R for READ, and Trigger:D for DELETE in each request.
+		{
+		
+		
+				http://localhost:3000/api/users
+				==============LOGIN======
+				email:irwansyah@gmail.com
+				password:123456
+				users_name:irwansyah
+				users_id:17
+				trigger:R
+				triggerdetail:Login
+				
+				ini sebuah endpoin intuk login 
+
+				====ACCOUNT=============
+				users_id:17
+				trigger:R
+				triggerdetail:Account
+
+		This is an endpoint to view user accounts after login. You can obtain the response users_id and pass it to this endpoint, so it filters based on the users_id. However, if you want to view all user data, leave the user_id field empty.
+
+		In summary, this endpoint allows you to view user accounts based on users_id if provided, or it will return all user data if users_id is left blank.
+				
+		}
+
+		{
+		
+		http://localhost:3000/api/restaurants
+		
+		=========list_of_restaurants=========
+		trigger:R
+		triggerdetail:list_of_restaurants
+		restaurants_id:
+		restaurants_name:
+		menu_name:
+		menu_price_01:10.06
+		menu_price_02:10.4
+		restaurants_day:
+		restaurants_hours:
+		restaurants_hours_01:
+		restaurants_hours_02:
+		orderby_distance:1
+		orderby_opening_hours:2
+		location_users:-8.679412,115.136036 --> wajib di isi
+		
+		This is the answer for numbers 1 - 6
+		explanation for all parameters
+		
+		(trigger:R
+		triggerdetail:list_of_restaurants) --> this must be included to see the list of restaurants trigger:R for Read and triggerdetail:list_of_restaurants to specify which function
+		
+		restaurants_id: to filter from id each restaurant
+		
+		restaurants_name: to filter the restaurant data by name, this name uses "LIKE" in the query
+		
+		menu_name: to filter restaurant menu data by name, this name uses "LIKE" in the query
+		
+	    (menu_price_01: & menu_price_02:) filter menu_price_01 price rengs for minimum price and menu_price_02 maximum price
+		
+		restaurants_day: filter weekdays restaurants and it uses "LIKE"
+		
+		restaurants_hours: filtering certain working hours, for example the user opens the application at 12 pm, the restaurants that are displayed are only restaurants that open at 12 pm
+		
+		(restaurants_hours_01: & restaurants_hours_02:filter the opening hours of restaurants based on the time range from what time to what time
+		
+		location_users:-8.679412,115.136036 --> must be filled in because this determines the distance between the users' location and the restaurants
+		
+		(orderby_distance:1
+		orderby_opening_hours:2) this is to display based on the order of opening hours or based on the nearest location if we want to sort by location means we set orderby_distance:1
+		
+		========user_transaction_summary===============
+		trigger:R
+		triggerdetail:user_transaction_summary
+		restaurants_id:
+		restaurants_name:
+		menu_name:
+		users_name:
+		date_01:
+		date_02:
+		transaction_totals_01:0
+		transaction_totals_02:5
+
+		answer number 7 and number 9
+		(trigger:R
+		triggerdetail:user_transaction_summary) --> this must be included to see the list of transactions trigger:R for Read and triggerdetail:user_transaction_summary_user to designate which function
+		
+		restaurants_id: to filter from id each restaurant
+		
+		restaurants_name: to filter restaurant data by name, this name uses "LIKE" in the query
+		
+		menu_name: to filter restaurant menu data by name, this name uses "LIKE" in the query
+		
+		users_name: to filter restaurant users name data by name, this name uses "LIKE" in the query
+		
+		(date_01
+		date_02) : to filter the transaction time from date to date
+		
+		
+		(transaction_totals_01:
+		transaction_totals_02) :to filter total transactions from total to total so it can be seen which user is doing the most transactions and if you just filter transaction_totals_01:4 then it will display the total
+         only 4 transactions
+		
+		=========restaurants_transaction_summary==============
+		trigger:R
+		triggerdetail:restaurants_transaction_summary
+		restaurants_id:
+		restaurants_name:
+		date_01:
+		date_02:
+		orderby_total_transactions:2
+		orderby_total_money:1
+		
+		answer number 8
+		(trigger:R
+		triggerdetail:restaurants_transaction_summary) --> this must be included to see the list of transactions trigger:R for Read and triggerdetail:restaurants_transaction_summary_user to designate which function
+		
+        restaurants_id: to filter from id each restaurant
+		
+		restaurants_name: to filter restaurant data by name, this name uses "LIKE" in the query
+		
+		(date_01
+		date_02) : to filter the transaction time from date to date
+		
+		(orderby_total_transactions:2
+		orderby_total_money:1) the option to sort data based on whether based on the amount of money or the number of transactions
+		
+		==========Detail_transaction=============
+		trigger:R
+		triggerdetail:detail_transaction
+		restaurants_id:
+		restaurants_name:
+		date_01:
+		date_02:
+		menu_name:
+		menu_id:
+		users_name:
+		users_id:
+		
+		answer number 10 and 11
+		(trigger:R
+		triggerdetail:detail_transaction) -->this must be included to see the list of transaction details trigger:R for Read and triggerdetail:detail_transaction to designate which function
+		
+		restaurants_id: to filter from id each restaurant
+		
+		restaurants_name: to filter restaurant data by name, this name uses "LIKE" in the query
+		
+		menu_name: to filter restaurant menu data by name, this name uses "LIKE" in the query
+		
+		users_name: to filter restaurant users name data by name, this name uses "LIKE" in the query
+		
+		(date_01
+		date_02) : to filter the transaction time from date to date
+		
+		}{
+		===========cereate_transaction===========
+		http://localhost:3000/api/restaurants
+		trigger:c
+		users_id:
+		menu_id:
+		restaurants_id:
+		order_quantity:
+		
+		============Delete__transaction===========
+		trigger:D
+		purchases_id:
+		
+		
+		answer number 12 
+		
+         we can do transaction and trigger:C with mandatory include
+		users_id:
+		menu_id:
+		restaurants_id:
+		order_quantity: This is the amount you want to order
+		
+		if the price of food, for example, is 2 dollars and the number of orders is 2, then the total pay is 4 dollars
+		and the restaurant balance will increase while the user balance will decrease
+
+		if the order is canceled, the restaurant and user balances will return
+		}
+
+			
+		
