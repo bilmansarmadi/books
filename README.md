@@ -15,7 +15,8 @@ Things you may want to cover:
 * Mysql-connector-c++-8.0.33-winx64 for windows
 
 * URL to API. https://ad93-112-78-153-47.ngrok-free.app/api/users OR https://ad93-112-78-153-47.ngrok-free.app/api/restaurants details are in the api 
-  documentation.txt
+  documentation.txt I use ngrok because I can't deploy to heroku because it's no longer free and other hosting providers also I don't have a suitable card 
+  to register
 * ...
 =======
 # order_food
