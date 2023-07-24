@@ -13,6 +13,9 @@ Things you may want to cover:
 * Database version Mysql 8.0.30 winx64
 
 * Mysql-connector-c++-8.0.33-winx64 for windows
+
+* URL to API. https://ad93-112-78-153-47.ngrok-free.app/api/users OR https://ad93-112-78-153-47.ngrok-free.app/api/restaurants details are in the api 
+  documentation.txt
 * ...
 =======
 # order_food
