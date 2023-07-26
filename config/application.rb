@@ -23,6 +23,6 @@ module OrderFood
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
-    config.hosts << "0461-112-78-153-47.ngrok-free.app"
+    config.hosts << "e4e1-112-78-153-47.ngrok-free.app"
   end
 end
