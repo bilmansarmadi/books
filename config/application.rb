@@ -24,5 +24,13 @@ module OrderFood
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
     config.hosts << "6438-112-78-153-47.ngrok-free.app"
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins 'http://localhost:81'
+        resource '*',
+                 headers: :any,
+                 methods: [:get, :post, :put, :delete, :options]
+      end
+    end    
   end
 end

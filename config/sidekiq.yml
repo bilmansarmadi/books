@@ -1,0 +1,21 @@
+production:
+  :concurrency: 5
+  :pidfile: tmp/pids/sidekiq.pid
+  :logfile: log/sidekiq.log
+  :queues:
+    - [default, 2]
+  :url: redis://172.25.253.146:6379/0
+development:
+  :concurrency: 5
+  :pidfile: tmp/pids/sidekiq.pid
+  :logfile: log/sidekiq.log
+  :queues:
+    - [default, 2]
+  :url: redis://172.25.253.146:6379/0
+staging:
+  :concurrency: 5
+  :pidfile: tmp/pids/sidekiq.pid
+  :logfile: log/sidekiq.log
+  :queues:
+    - [default, 2]
+  :url: redis://172.25.253.146:6379/0

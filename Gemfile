@@ -5,6 +5,11 @@ ruby "3.2.2"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.6"
+gem 'will_paginate', '~> 4.0'
+gem 'sidekiq', '6.0.2'
+gem 'rack-cors'
+gem 'devise'
+gem 'delayed_job_active_record'
 
 # Use mysql as the database for Active Record
 gem 'mysql2'
